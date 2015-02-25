@@ -15,8 +15,8 @@ class CIDRmatchTest extends PHPUnit_Framework_TestCase
     public function testIPv4Match()
     {
         $cidrMatch = new CIDRmatch();
-        $this->assertTrue($cidrMatch->match('104.132.31.94', '104.132.0.0/14'));
-        $this->assertTrue($cidrMatch->match('74.125.60.25', '74.125.0.0/16'));
+        $this->assertTrue($cidrMatch->match('104.132.31.99', '104.132.0.0/14'));
+        $this->assertTrue($cidrMatch->match('74.125.60.99', '74.125.0.0/16'));
 
     }
 
