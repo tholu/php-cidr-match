@@ -1,7 +1,7 @@
 {
   "name" : "tholu/php-cidr-match",
   "type" : "library",
-  "description" : "CIDRmatch is a library to match an ip to an ip range in CIDR notation (IPv4 and IPv6).",
+  "description" : "CIDRmatch is a library to match an IP to an IP range in CIDR notation (IPv4 and IPv6).",
   "keywords" : [
     "PHP",
     "IPv4",

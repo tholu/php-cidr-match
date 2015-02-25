@@ -3,7 +3,8 @@ namespace CIDRmatch;
 
 /** CIDR match
  * ================================================================================
- * PHP library to check if ip adress is included in ip range (CIDR notation)
+ * IDRmatch is a library to match an IP to an IP range in CIDR notation (IPv4 and
+ * IPv6).
  *  ================================================================================
  * @package     CIDRmatch
  * @author      Thomas Lutz
@@ -15,43 +16,36 @@ namespace CIDRmatch;
 class CIDRmatch
 {
 
-    function match($ip, $range)
+    public function match($ip, $cidr)
     {
-        $ip_version = false;
+        list($subnet, $mask) = explode('/', $cidr);
+
         if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
             // it's valid
-            $ip_version = 'v4';
+            $ipVersion = 'v4';
         } else {
             // it's not valid
             if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
                 // it's valid
-                $ip_version = 'v6';
+                $ipVersion = 'v6';
             } else {
                 // it's not valid
                 return false;
             }
         }
-        if (!$ip_version) {
-            return false;
-        }
 
-        switch ($ip_version) {
+        switch ($ipVersion) {
             case 'v4':
-
+                return $this->IPv4Match($ip, $subnet, $mask);
                 break;
             case 'v6':
-                $range_arr = explode('/', $range);
-                $subnet = inet_pton($range_arr[0]);
-                $mask = $range_arr[1];
-                $addr = inet_pton($ip);
-
-                return ipv6_cidr_match($addr, $subnet, $mask);
+                return $this->IPv6Match($ip, $subnet, $mask);
                 break;
         }
     }
 
     // inspired by: http://stackoverflow.com/questions/7951061/matching-ipv6-address-to-a-cidr-subnet
-    function ipv6_mask_to_byte_array($subnetMask)
+    private function IPv6MaskToByteArray($subnetMask)
     {
         $addr = str_repeat("f", $subnetMask / 4);
         switch ($subnetMask % 4) {
@@ -74,11 +68,24 @@ class CIDRmatch
     }
 
     // inspired by: http://stackoverflow.com/questions/7951061/matching-ipv6-address-to-a-cidr-subnet
-    function ipv6_cidr_match($address, $subnetAddress, $subnetMask)
+    private function IPv6Match($address, $subnetAddress, $subnetMask)
     {
-        $binMask = ipv6_mask_to_byte_array($subnetMask);
+        $subnet = inet_pton($subnetAddress);
+        $addr = inet_pton($address);
 
-        return ($address & $binMask) == $subnetAddress;
+        $binMask = $this->IPv6MaskToByteArray($subnetMask);
+
+        return ($addr & $binMask) == $subnet;
+    }
+
+    // inspired by: http://stackoverflow.com/questions/594112/matching-an-ip-to-a-cidr-mask-in-php5
+    private function IPv4Match($address, $subnetAddress, $subnetMask)
+    {
+        if ((ip2long($address) & ~((1 << (32 - $subnetMask)) - 1)) == ip2long($subnetAddress)) {
+            return true;
+        }
+
+        return false;
     }
 
 }
