@@ -1,0 +1,34 @@
+{
+  "name" : "tholu/php-cidr-match",
+  "type" : "library",
+  "description" : "CIDRmatch is a library to match an ip to an ip range in CIDR notation (IPv4 and IPv6).",
+  "keywords" : [
+    "PHP",
+    "IPv4",
+    "IPv6",
+    "CIDR"
+  ],
+  "license" : "MIT",
+  "authors" : [{
+    "name" : "Thomas Lutz",
+    "email" : "thomaslutz.de@gmail.com",
+    "homepage" : "https://github.com/tholu",
+    "role" : "Creator, Developer, Maintainer"
+  }
+  ],
+  "require" : {
+    "php" : ">=5.3",
+    "ext-curl" : "*",
+    "ext-json" : "*"
+  },
+  "require-dev" : {
+    "squizlabs/php_codesniffer" : "~1",
+    "composer/composer": "1.0.*@dev",
+    "phpunit/phpunit" : ">=3.7,<4"
+  },
+  "autoload" : {
+    "psr-0" : {
+      "CIDRmatch\\" : ""
+    }
+  }
+}
