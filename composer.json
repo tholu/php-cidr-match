@@ -17,9 +17,7 @@
   }
   ],
   "require" : {
-    "php" : ">=5.3",
-    "ext-curl" : "*",
-    "ext-json" : "*"
+    "php" : ">=5.3"
   },
   "require-dev" : {
     "squizlabs/php_codesniffer" : "~1",

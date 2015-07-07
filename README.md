@@ -14,3 +14,8 @@ $cidrMatch = new CIDRmatch();
 $cidrMatch->match($ip, $cidr);
 ```
 
+## Tests
+
+```
+vendor/bin/phpunit tests/CIDRmatchTest
+```

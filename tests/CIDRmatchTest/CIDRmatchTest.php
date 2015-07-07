@@ -10,7 +10,7 @@ use CIDRmatch\CIDRmatch;
 class CIDRmatchTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Ensure that IPv4 adresses work
+     * Ensure that IPv4 addresses work
      */
     public function testIPv4Match()
     {
@@ -21,7 +21,7 @@ class CIDRmatchTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Ensure that IPv6 adresses work
+     * Ensure that IPv6 addresses work
      */
     public function testIPv6Match()
     {
