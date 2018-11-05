@@ -70,6 +70,9 @@ class CIDRmatch
     // inspired by: http://stackoverflow.com/questions/7951061/matching-ipv6-address-to-a-cidr-subnet
     private function IPv6Match($address, $subnetAddress, $subnetMask)
     {
+        if (!filter_var($subnetAddress, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) || $subnetMask === NULL || $subnetMask === "" || $subnetMask < 0 || $subnetMask > 128) {
+            return false;
+        }
         $subnet = inet_pton($subnetAddress);
         $addr = inet_pton($address);
 
@@ -81,6 +84,9 @@ class CIDRmatch
     // inspired by: http://stackoverflow.com/questions/594112/matching-an-ip-to-a-cidr-mask-in-php5
     private function IPv4Match($address, $subnetAddress, $subnetMask)
     {
+        if (!filter_var($subnetAddress, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) || $subnetMask === NULL || $subnetMask === "" || $subnetMask < 0 || $subnetMask > 32) {
+            return false;
+        }
         if ((ip2long($address) & ~((1 << (32 - $subnetMask)) - 1)) == ip2long($subnetAddress)) {
             return true;
         }
