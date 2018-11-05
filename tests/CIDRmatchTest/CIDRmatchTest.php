@@ -1,13 +1,14 @@
 <?php
 
 use CIDRmatch\CIDRmatch;
+require_once("CIDRmatch/CIDRmatch.php");
 
 /**
  * A suite of tests for the CIDRmatch class
  *
  * @author Thomas Lutz
  */
-class CIDRmatchTest extends PHPUnit_Framework_TestCase
+class CIDRmatchTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Ensure that IPv4 addresses work
