@@ -18,7 +18,9 @@ class CIDRmatch
 
     public function match($ip, $cidr)
     {
-        list($subnet, $mask) = explode('/', $cidr);
+        $c = explode('/', $cidr);
+				$subnet = isset($c[0]) ? $c[0] : NULL;
+				$mask   = isset($c[1]) ? $c[1] : NULL;
 
         if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
             // it's valid
