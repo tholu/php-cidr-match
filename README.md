@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tholu/php-cidr-match.svg?branch=master)](https://travis-ci.org/tholu/php-cidr-match)
+[![Build Status](https://api.travis-ci.com/tholu/php-cidr-match.svg?branch=master)](https://app.travis-ci.com/github/tholu/php-cidr-match)
 
 # CIDR match
 
