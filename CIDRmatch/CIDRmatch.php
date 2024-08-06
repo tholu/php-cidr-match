@@ -57,7 +57,7 @@ class CIDRmatch
     // inspired by: http://stackoverflow.com/questions/7951061/matching-ipv6-address-to-a-cidr-subnet
     private function IPv6MaskToByteArray($subnetMask)
     {
-        $addr = str_repeat("f", $subnetMask / 4);
+        $addr = str_repeat("f", intdiv($subnetMask, 4));
         switch ($subnetMask % 4) {
             case 0:
                 break;
