@@ -1,4 +1,4 @@
-[![Build Status](https://api.travis-ci.com/tholu/php-cidr-match.svg?branch=master)](https://app.travis-ci.com/github/tholu/php-cidr-match)
+[![CI](https://github.com/tholu/php-cidr-match/actions/workflows/ci.yml/badge.svg)](https://github.com/tholu/php-cidr-match/actions/workflows/ci.yml)
 
 # CIDR match
 
@@ -13,6 +13,7 @@ Unfortunately I discovered this only after I finished working on this library.
 $cidrMatch = new CIDRmatch();
 $cidrMatch->match($ip, $cidr);
 ```
+
 
 ## Tests
 

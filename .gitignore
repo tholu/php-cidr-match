@@ -5,3 +5,4 @@ composer.lock
 .settings
 .DS_Store
 .idea
+tests/.phpunit.result.cache
