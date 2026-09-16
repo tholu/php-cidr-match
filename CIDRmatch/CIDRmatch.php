@@ -3,14 +3,14 @@ namespace CIDRmatch;
 
 /** CIDR match
  * ================================================================================
- * IDRmatch is a library to match an IP to an IP range in CIDR notation (IPv4 and
+ * CIDRmatch is a library to match an IP to an IP range in CIDR notation (IPv4 and
  * IPv6).
- *  ================================================================================
+ * ================================================================================
  * @package     CIDRmatch
  * @author      Thomas Lutz
  * @copyright   Copyright (c) 2015 - present Thomas Lutz
  * @license     http://tholu.mit-license.org
- *  ================================================================================
+ * ================================================================================
  */
 
 class CIDRmatch
